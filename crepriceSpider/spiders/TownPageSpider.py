@@ -9,8 +9,11 @@ from crepriceSpider.settings import REDIS_URL
 
 from pymongo import MongoClient
 
-client = MongoClient('mongodb://root:root@127.0.0.1:27017/')
-db = client.crepriceSpider
+# client = MongoClient('mongodb://test:test@127.0.0.1:27017/')
+# db = client.crepriceSpider
+import pymongo
+client = pymongo.MongoClient("mongodb://test:test@127.0.0.1:27017/crepriceSpider")
+db = client["crepriceSpider"]
 
 townUrlList = db.CityPageSpider.find({},{"town_url":1,"_id":0 })
 

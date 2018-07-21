@@ -16,8 +16,11 @@ from pymongo import MongoClient
 # SELECT a,b FROM users WHERE age=33
 # db.users.find({age:33}, {a:1,b:1})
 
-client = MongoClient('mongodb://root:root@127.0.0.1:27017/')
-db = client.crepriceSpider
+# client = MongoClient('mongodb://test:test@127.0.0.1:27017/')
+# db = client.crepriceSpider
+import pymongo
+client = pymongo.MongoClient("mongodb://test:test@127.0.0.1:27017/crepriceSpider")
+db = client["crepriceSpider"]
 cityList = db.Citys.find({},{"shortname":1})
 
 '''城市页面数据爬取'''
